@@ -1,0 +1,50 @@
+/* Code copied from: http://callmenick.com/post/css-toggle-switch-examples */
+
+.toggle {
+  display: none;
+}
+
+input.toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  padding: 2px;
+  width: 40px;
+  height: 16px;
+}
+
+input.toggle + label:before,
+input.toggle + label:after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+input.toggle + label:before {
+  background-color: #dddddd;
+  content: attr(data-off);
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
+
+input.toggle + label:after {
+  background-color: #6ebfc3;
+  content: attr(data-on);
+  transition: transform 0.5s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+input.toggle:checked + label:before {
+  transform: rotateY(180deg);
+}
+
+input.toggle:checked + label:after {
+  transform: rotateY(0);
+}
